@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hahn.ApplicatonProcess.December2020.Domain.Models
+namespace Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos
 {
-    [Table("Applicant")]
-    public class Applicant
+    public class ApplicantDto
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public int Name { get; set; }
         public string FamilyName { get; set; }
         public string Address { get; set; }
         public string CountryOfOrigin { get; set; }

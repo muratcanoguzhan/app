@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
+using Hahn.ApplicatonProcess.December2020.Data.Repositories;
 using Hahn.ApplicatonProcess.December2020.Web.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -75,6 +76,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             .EnableSensitiveDataLogging()
             .EnableDetailedErrors()
             .LogTo(Console.WriteLine));
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
