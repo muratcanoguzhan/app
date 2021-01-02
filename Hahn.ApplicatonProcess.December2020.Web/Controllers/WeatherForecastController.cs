@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
 {
@@ -34,6 +35,20 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        [SwaggerRequestExample(typeof(WeatherForecast), typeof(WeatherForecastModelExample))]
+        public void Create(WeatherForecast weatherForecast)
+        {
+        }
+    }
+
+    public class WeatherForecastModelExample : IExamplesProvider<WeatherForecast>
+    {
+        public WeatherForecast GetExamples()
+        {
+            return new WeatherForecast { Date = DateTime.UtcNow, Summary = "Cloudly", TemperatureC = 70 };
         }
     }
 }
