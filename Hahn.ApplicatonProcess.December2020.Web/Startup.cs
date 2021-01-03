@@ -18,6 +18,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using AutoMapper;
+using Hahn.ApplicatonProcess.December2020.Web.Mapper;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -78,6 +80,10 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             .LogTo(Console.WriteLine));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddSingleton(typeof(Mapper.IObjectMapper), typeof(AutoMapperObjectMapper));
+
+            services.AddAutoMapper(CustomDtoMapper.CreateMappings);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

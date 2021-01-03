@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Data.Repositories;
+using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
+using Hahn.ApplicatonProcess.December2020.Web.Mapper;
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
 {
@@ -16,24 +18,26 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
     public class ApplicantsController : ControllerBase
     {
         private readonly IRepository<Applicant> _applicantRepository;
+        private readonly IObjectMapper _objectMapper;
 
-        public ApplicantsController(IRepository<Applicant> applicantRepository)
+        public ApplicantsController(IRepository<Applicant> applicantRepository, IObjectMapper objectMapper)
         {
             _applicantRepository = applicantRepository;
+            _objectMapper = objectMapper;
         }
 
         // GET: api/Applicants
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
+        public async Task<ActionResult<IEnumerable<ApplicantDto>>> GetApplicants()
         {
             var applicants = await _applicantRepository.Get();
 
-            return applicants;
+            return applicants.Select(a => _objectMapper.Map<ApplicantDto>(a)).ToList();
         }
 
         // GET: api/Applicants/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Applicant>> GetApplicant(int id)
+        public async Task<ActionResult<ApplicantDto>> GetApplicant(int id)
         {
             var applicant = await _applicantRepository.GetByID(id);
 
@@ -42,20 +46,20 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
                 return NotFound();
             }
 
-            return applicant;
+            return _objectMapper.Map<ApplicantDto>(applicant);
         }
 
         // PUT: api/Applicants/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutApplicant(int id, Applicant applicant)
+        public async Task<IActionResult> PutApplicant(int id, ApplicantDto applicant)
         {
             if (id != applicant.ID)
             {
                 return BadRequest();
             }
 
-            await _applicantRepository.Update(applicant);
+            await _applicantRepository.Update(_objectMapper.Map<Applicant>(applicant));
 
 
             return NoContent();
@@ -64,9 +68,10 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
         // POST: api/Applicants
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Applicant>> PostApplicant(Applicant applicant)
+        public async Task<ActionResult<ApplicantDto>> PostApplicant(ApplicantDto applicant)
         {
-            await _applicantRepository.Insert(applicant);
+            var entity = _objectMapper.Map<Applicant>(applicant);
+            await _applicantRepository.Insert(entity);
 
             return CreatedAtAction("GetApplicant", new { id = applicant.ID }, applicant);
         }
