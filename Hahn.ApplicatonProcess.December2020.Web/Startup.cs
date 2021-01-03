@@ -70,7 +70,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                 });
             });
 
-            services.AddSwaggerExamplesFromAssemblyOf<WeatherForecastModelExample>();
+            services.AddSwaggerExamplesFromAssemblyOf<ApplicantDtoModelExample>();
 
             services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
 
