@@ -8,7 +8,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
     {
         public ApplicantDto GetExamples()
         {
-            return new ApplicantDto { ID = 0, Address = "Uskudar", Age = 29, CountryOfOrigin = "Germany", EmailAdress = "m.c.ogzhan@gmail.com", FamilyName = "Oguzhan", Hired = true, Name = "Murat" };
+            return new ApplicantDto { ID = 0, Address = "Uskudar Istanbul", Age = 29, CountryOfOrigin = "Germany", EmailAdress = "m.c.ogzhan@gmail.com", FamilyName = "Oguzhan", Hired = true, Name = "Murat" };
         }
     }
 }

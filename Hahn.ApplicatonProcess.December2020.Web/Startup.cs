@@ -20,6 +20,9 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using AutoMapper;
 using Hahn.ApplicatonProcess.December2020.Web.Mapper;
+using FluentValidation.AspNetCore;
+using Hahn.ApplicatonProcess.December2020.Web.Validators;
+using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
@@ -35,7 +38,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddHttpClient();
+            services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicantValidator>());
 
             services.AddSwaggerGen(c =>
             {
@@ -81,6 +85,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddSingleton(typeof(Mapper.IObjectMapper), typeof(AutoMapperObjectMapper));
+            services.AddSingleton(typeof(ICountryInfoFinder), typeof(CountryInfoFinder));
 
             services.AddAutoMapper(CustomDtoMapper.CreateMappings);
 

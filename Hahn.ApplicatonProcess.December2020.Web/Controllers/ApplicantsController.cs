@@ -50,14 +50,9 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
 
         // PUT: api/Applicants/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutApplicant(int id, ApplicantDto applicant)
+        [HttpPut]
+        public async Task<IActionResult> PutApplicant(ApplicantDto applicant)
         {
-            if (id != applicant.ID)
-            {
-                return BadRequest();
-            }
-
             await _applicantRepository.Update(_objectMapper.Map<Applicant>(applicant));
 
 
