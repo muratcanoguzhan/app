@@ -65,20 +65,20 @@ namespace Hahn.ApplicatonProcess.December2020.Web
                 // or use the generic method, e.g. c.OperationFilter<SecurityRequirementsOperationFilter<MyCustomAttribute>>();
 
                 // if you're using the SecurityRequirementsOperationFilter, you also need to tell Swashbuckle you're using OAuth2
-                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                {
-                    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-                    In = ParameterLocation.Header,
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
+                //c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                //{
+                //    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                //    In = ParameterLocation.Header,
+                //    Name = "Authorization",
+                //    Type = SecuritySchemeType.ApiKey
+                //});
             });
 
             services.AddSwaggerExamplesFromAssemblyOf<ApplicantDtoModelExample>();
 
             services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
 
-            services.AddDbContext<HahnContext>(b => b.UseSqlServer(Configuration.GetValue<string>("ConnectionStrings:Default"))
+            services.AddDbContext<HahnContext>(b => b.UseInMemoryDatabase(Configuration.GetValue<string>("ConnectionStrings:Default"))
             .EnableSensitiveDataLogging()
             .EnableDetailedErrors()
             .LogTo(Console.WriteLine));
