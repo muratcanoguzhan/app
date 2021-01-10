@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
 using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
 
@@ -20,7 +16,8 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Validators
             RuleFor(x => x.FamilyName).MinimumLength(5);
             RuleFor(x => x.Address).MinimumLength(10);
 
-            RuleFor(x => x.CountryOfOrigin).Must((rootObject, c, context) => {
+            RuleFor(x => x.CountryOfOrigin).Must((rootObject, c, context) =>
+            {
                 context.MessageFormatter
                   .AppendArgument("CountryToCheck", c);
 

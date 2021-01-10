@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
 using Hahn.ApplicatonProcess.December2020.Domain.Models;
 

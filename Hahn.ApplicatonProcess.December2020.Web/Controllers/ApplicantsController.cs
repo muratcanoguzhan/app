@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
-using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Data.Repositories;
 using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
+using Hahn.ApplicatonProcess.December2020.Domain.Models;
 using Hahn.ApplicatonProcess.December2020.Web.Mapper;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
 {
@@ -67,7 +64,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
             var entity = _objectMapper.Map<Applicant>(applicant);
             await _applicantRepository.Insert(entity);
 
-            return CreatedAtAction("GetApplicant", new { id = applicant.ID }, applicant);
+            return CreatedAtAction("GetApplicant", new { id = applicant.ID }, _objectMapper.Map<Applicant>(entity));
         }
 
         // DELETE: api/Applicants/5

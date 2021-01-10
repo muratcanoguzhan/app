@@ -1,5 +1,4 @@
-﻿using System;
-using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
+﻿using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace Hahn.ApplicatonProcess.December2020.Web.Controllers

@@ -1,33 +1,27 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+using AutoMapper;
+using FluentValidation.AspNetCore;
 using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
 using Hahn.ApplicatonProcess.December2020.Data.Repositories;
+using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
 using Hahn.ApplicatonProcess.December2020.Web.Controllers;
+using Hahn.ApplicatonProcess.December2020.Web.Mapper;
+using Hahn.ApplicatonProcess.December2020.Web.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
-using AutoMapper;
-using Hahn.ApplicatonProcess.December2020.Web.Mapper;
-using FluentValidation.AspNetCore;
-using Hahn.ApplicatonProcess.December2020.Web.Validators;
-using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
 
 namespace Hahn.ApplicatonProcess.December2020.Web
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -39,6 +33,14 @@ namespace Hahn.ApplicatonProcess.December2020.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:8080").AllowAnyMethod().AllowAnyHeader();
+                                  });
+            });
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ApplicantValidator>());
 
             services.AddSwaggerGen(c =>
@@ -105,11 +107,14 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             app.UseRouting();
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapFallbackToController();
             });
         }
     }
