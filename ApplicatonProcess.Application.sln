@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{016E21B6-4D8E-4B72-9E29-31FBAF258D59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.December2020.Data", "Hahn.ApplicatonProcess.December2020.Data\Hahn.ApplicatonProcess.December2020.Data.csproj", "{675619A9-22C9-488D-B3F7-53189B6D2978}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicatonProcess.December2020.Data", "Hahn.ApplicatonProcess.December2020.Data\ApplicatonProcess.December2020.Data.csproj", "{675619A9-22C9-488D-B3F7-53189B6D2978}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicatonProcess.December2020.Domain", "Hahn.ApplicatonProcess.December2020.Domain\Hahn.ApplicatonProcess.December2020.Domain.csproj", "{7DBEAAD2-3B69-4F88-9CA4-17B97631D25B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicatonProcess.December2020.Domain", "Hahn.ApplicatonProcess.December2020.Domain\ApplicatonProcess.December2020.Domain.csproj", "{7DBEAAD2-3B69-4F88-9CA4-17B97631D25B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicatonProcess.December2020.Web", "Hahn.ApplicatonProcess.December2020.Web\Hahn.ApplicatonProcess.December2020.Web.csproj", "{024841AE-66C1-4C95-AA5F-15A76921D77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicatonProcess.December2020.Web", "Hahn.ApplicatonProcess.December2020.Web\ApplicatonProcess.December2020.Web.csproj", "{024841AE-66C1-4C95-AA5F-15A76921D77B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D501069-4C04-4358-9B24-5AB8EC2B1E4B}"
 	ProjectSection(SolutionItems) = preProject

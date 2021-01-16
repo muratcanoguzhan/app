@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Hahn.ApplicatonProcess.December2020.Web/Hahn.ApplicatonProcess.December2020.Web.csproj", "Hahn.ApplicatonProcess.December2020.Web/"]
-RUN dotnet restore "Hahn.ApplicatonProcess.December2020.Web/Hahn.ApplicatonProcess.December2020.Web.csproj"
+COPY ["ApplicatonProcess.December2020.Web/ApplicatonProcess.December2020.Web.csproj", "ApplicatonProcess.December2020.Web/"]
+RUN dotnet restore "ApplicatonProcess.December2020.Web/ApplicatonProcess.December2020.Web.csproj"
 COPY . .
-WORKDIR "/src/Hahn.ApplicatonProcess.December2020.Web"
-RUN dotnet build "Hahn.ApplicatonProcess.December2020.Web.csproj" -c Release -o /app/build
+WORKDIR "/src/ApplicatonProcess.December2020.Web"
+RUN dotnet build "ApplicatonProcess.December2020.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Hahn.ApplicatonProcess.December2020.Web.csproj" -c Release -o /app/publish
+RUN dotnet publish "ApplicatonProcess.December2020.Web.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Hahn.ApplicatonProcess.December2020.Web.dll"]
+ENTRYPOINT ["dotnet", "ApplicatonProcess.December2020.Web.dll"]

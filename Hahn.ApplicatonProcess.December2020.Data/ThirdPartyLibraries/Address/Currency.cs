@@ -1,4 +1,4 @@
-﻿namespace Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
+﻿namespace ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Currency

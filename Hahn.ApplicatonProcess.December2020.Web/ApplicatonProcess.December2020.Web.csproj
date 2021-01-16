@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>0c14bc45-b0f6-45aa-ab82-33f9545da8d6</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <StartupObject>Hahn.ApplicatonProcess.December2020.Web.Program</StartupObject>
+    <StartupObject>ApplicatonProcess.December2020.Web.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hahn.ApplicatonProcess.December2020.Data\Hahn.ApplicatonProcess.December2020.Data.csproj" />
+    <ProjectReference Include="..\Hahn.ApplicatonProcess.December2020.Data\ApplicatonProcess.December2020.Data.csproj" />
   </ItemGroup>
 
 </Project>

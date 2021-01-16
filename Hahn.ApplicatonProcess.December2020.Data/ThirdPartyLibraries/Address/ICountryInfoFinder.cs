@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
+namespace ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
 {
     public interface ICountryInfoFinder
     {

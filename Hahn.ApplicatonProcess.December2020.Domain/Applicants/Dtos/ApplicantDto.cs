@@ -1,4 +1,4 @@
-﻿namespace Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos
+﻿namespace ApplicatonProcess.December2020.Domain.Applicants.Dtos
 {
     public class ApplicantDto
     {

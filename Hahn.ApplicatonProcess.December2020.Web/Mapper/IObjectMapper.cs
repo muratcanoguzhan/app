@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Hahn.ApplicatonProcess.December2020.Web.Mapper
+namespace ApplicatonProcess.December2020.Web.Mapper
 {
     public interface IObjectMapper
     {

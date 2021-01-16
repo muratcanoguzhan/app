@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 
-namespace Hahn.ApplicatonProcess.December2020.Web.Mapper
+namespace ApplicatonProcess.December2020.Web.Mapper
 {
     public class AutoMapperObjectMapper : Mapper.IObjectMapper
     {

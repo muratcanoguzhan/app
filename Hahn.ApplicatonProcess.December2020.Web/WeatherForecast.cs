@@ -1,6 +1,6 @@
 using System;
 
-namespace Hahn.ApplicatonProcess.December2020.Web
+namespace ApplicatonProcess.December2020.Web
 {
     public class WeatherForecast
     {

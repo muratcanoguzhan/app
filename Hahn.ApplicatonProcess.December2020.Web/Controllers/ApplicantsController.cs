@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hahn.ApplicatonProcess.December2020.Data.Repositories;
-using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
-using Hahn.ApplicatonProcess.December2020.Domain.Models;
-using Hahn.ApplicatonProcess.December2020.Web.Mapper;
+using ApplicatonProcess.December2020.Data.Repositories;
+using ApplicatonProcess.December2020.Domain.Applicants.Dtos;
+using ApplicatonProcess.December2020.Domain.Models;
+using ApplicatonProcess.December2020.Web.Mapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
+namespace ApplicatonProcess.December2020.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Hahn.ApplicatonProcess.December2020.Web": {
+    "ApplicatonProcess.December2020.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

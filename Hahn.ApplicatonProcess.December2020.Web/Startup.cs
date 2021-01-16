@@ -1,12 +1,12 @@
 using System;
 using AutoMapper;
 using FluentValidation.AspNetCore;
-using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
-using Hahn.ApplicatonProcess.December2020.Data.Repositories;
-using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
-using Hahn.ApplicatonProcess.December2020.Web.Controllers;
-using Hahn.ApplicatonProcess.December2020.Web.Mapper;
-using Hahn.ApplicatonProcess.December2020.Web.Validators;
+using ApplicatonProcess.December2020.Data.EntityFrameworkCore;
+using ApplicatonProcess.December2020.Data.Repositories;
+using ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
+using ApplicatonProcess.December2020.Web.Controllers;
+using ApplicatonProcess.December2020.Web.Mapper;
+using ApplicatonProcess.December2020.Web.Validators;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace Hahn.ApplicatonProcess.December2020.Web
+namespace ApplicatonProcess.December2020.Web
 {
     public class Startup
     {
@@ -45,7 +45,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.December2020.Web", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApplicatonProcess.December2020.Web", Version = "v1" });
 
                 // [SwaggerRequestExample] & [SwaggerResponseExample]
                 // version < 3.0 like this: c.OperationFilter<ExamplesOperationFilter>(); 
@@ -80,7 +80,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 
             services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
 
-            services.AddDbContext<HahnContext>(b => b.UseInMemoryDatabase(Configuration.GetValue<string>("ConnectionStrings:Default"))
+            services.AddDbContext<Data.EntityFrameworkCore.AppContext>(b => b.UseInMemoryDatabase(Configuration.GetValue<string>("ConnectionStrings:Default"))
             .EnableSensitiveDataLogging()
             .EnableDetailedErrors()
             .LogTo(Console.WriteLine));
@@ -100,7 +100,7 @@ namespace Hahn.ApplicatonProcess.December2020.Web
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicatonProcess.December2020.Web v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApplicatonProcess.December2020.Web v1"));
             }
 
             app.UseHttpsRedirection();

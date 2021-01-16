@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
-using Hahn.ApplicatonProcess.December2020.Domain.Applicants.Dtos;
+using ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address;
+using ApplicatonProcess.December2020.Domain.Applicants.Dtos;
 
-namespace Hahn.ApplicatonProcess.December2020.Web.Validators
+namespace ApplicatonProcess.December2020.Web.Validators
 {
     public class ApplicantValidator : AbstractValidator<ApplicantDto>
     {

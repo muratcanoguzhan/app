@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Hahn.ApplicatonProcess.December2020.Data.EntityFrameworkCore;
+using ApplicatonProcess.December2020.Data.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hahn.ApplicatonProcess.December2020.Data.Repositories
+namespace ApplicatonProcess.December2020.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        internal HahnContext context;
+        internal EntityFrameworkCore.AppContext context;
         internal DbSet<TEntity> dbSet;
 
-        public Repository(HahnContext context)
+        public Repository(EntityFrameworkCore.AppContext context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();

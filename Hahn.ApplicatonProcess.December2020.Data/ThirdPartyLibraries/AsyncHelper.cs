@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Nito.AsyncEx;
 
-namespace Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries
+namespace ApplicatonProcess.December2020.Data.ThirdPartyLibraries
 {
     /// <summary>
     /// Provides some helper methods to work with async methods.

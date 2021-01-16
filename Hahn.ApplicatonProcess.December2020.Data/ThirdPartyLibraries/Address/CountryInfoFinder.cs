@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Hahn.ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
+namespace ApplicatonProcess.December2020.Data.ThirdPartyLibraries.Address
 {
     public class CountryInfoFinder : ICountryInfoFinder
     {

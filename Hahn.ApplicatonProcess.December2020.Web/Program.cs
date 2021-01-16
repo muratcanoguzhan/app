@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace Hahn.ApplicatonProcess.December2020.Web
+namespace ApplicatonProcess.December2020.Web
 {
     public class Program
     {

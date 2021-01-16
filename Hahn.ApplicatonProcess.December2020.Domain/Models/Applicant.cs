@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Hahn.ApplicatonProcess.December2020.Domain.Models
+namespace ApplicatonProcess.December2020.Domain.Models
 {
     [Table("Applicant")]
     public class Applicant
